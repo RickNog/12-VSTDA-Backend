@@ -1,0 +1,15 @@
+body {
+    margin-top: 2%;
+}
+
+.lowPri{
+	background-color: rgba(158, 201, 230, 0.69);
+}
+
+.mediumPri{
+	background-color: rgba(247, 223, 233, 0.69);
+}
+
+.highPri{
+	background-color: rgba(205, 122, 140, 0.42);
+}

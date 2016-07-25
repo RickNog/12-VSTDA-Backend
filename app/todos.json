@@ -1,0 +1,20 @@
+[
+	{"name":"clean house",
+	"priority":"lowPri"},
+
+	{"name":"water the yard",
+	"priority":"mediumPri"},
+
+	{"name":"feed the dog",
+	"priority":"mediumPri"},
+
+	{"name":"pay bills",
+	"priority":"highPri"},
+
+	{"name":"run",
+	"priority":"highPri"},
+
+	{"name":"swim",
+	"priority":"lowPri"}
+
+]

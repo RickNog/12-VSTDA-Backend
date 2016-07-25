@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>>Your Very Simple Todo App</title>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/app/styles/styles.css">
+    <!-- endinject -->
+</head>
+
+<body ng-controller="MainController as vm">
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- endbower -->
+    <div class="container">
+        <header>
+            <h1>Your Very Simple Todo App</h1>
+        </header>
+    </div>
+    <!--Start of input form-->
+    <div class="container">
+        <div class="col-xs-4">
+            <div class="panel panel-info">
+                <div class="panel heading">Add Todo Item</div>
+                <div class="todoTextInput">
+                    <label for="todoText">Text</label>
+                    <input type="text" class="form-control" ng-model="todoInput" placeholder="Enter Your Task.">
+                </div>
+                <div class="prioritySelectInput">
+                    <label for="prioritySelect">Priority</label>
+                    <select class="form-control" ng-model="todoPriority">
+                        <option class="lowPri" value="lowPri">Low Priority</option>
+                        <option class="mediumPri" value="mediumPri">Medium Priority</option>
+                        <option class="highPri" value="highPri">High Priority</option>
+                    </select>
+                </div>
+                <!--Start of button function to add to table-->
+                <div class="button">
+                    <button type="submit" ng-click="vm.addTodo(todoInput, todoPriority)" class=" btn btn-primary">Add Todo</button>
+                </div>
+            </div>
+        </div>
+        <!--Priority buttons-->
+        <div class="col-xs-8 rightPanel ">
+            <div class="row ">
+                <div class="input-group-btn button ">
+                    <button type="button " class="btn btn-primary button " ng-click="sortBy='priority' ; reverse=false ">Order by Highest Priority</button>
+                    <button type="button " class="btn btn-primary button " ng-click="sortBy='-priority' ; reverse=false ">Order by Lowest Priority</button>
+                    <button type="button " class="btn btn-primary button " ng-click="sortBy='name' ; reverse=! reverse ">Order Alphabetically</button>
+                </div>
+            </div>
+            <!--Start of table for data to populate-->
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th class="col-xs-7 ">Name of Todo</th>
+                        <th class="col-xs-1 "></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="data in vm.todos | orderBy: sortBy : reverse " class="{{data. priority}} ">
+                        <td>{{data.text}}</td>
+                        <td><a href="" ng-click="vm.deleteTodo(data) ">delete</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- inject:js -->
+    <script src="/app/app.js"></script>
+    <script src="/app/main.controller.js"></script>
+    <script src="/app/main.factory.js"></script>
+    <!-- endinject -->
+</body>
+
+</html>
